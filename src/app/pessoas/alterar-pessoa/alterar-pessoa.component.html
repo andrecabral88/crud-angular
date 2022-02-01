@@ -1,0 +1,34 @@
+<div class="col-md-6 user-container">
+  <h2 class="text-center">Alterar Pessoa</h2>
+
+  <form [formGroup]="editForm" (ngSubmit)="alterar(pessoa)">
+
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" formControlName="nome" placeholder="nome" name="nome" class="form-control" id="nome">
+      <span *ngIf="editForm.controls.nome.errors?.required" class="text-danger">
+        Campo obrigatório
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="sobrenome">Sobrenome:</label>
+      <input formControlName="sobrenome" placeholder="sobrenome" name="sobrenome" class="form-control" id="sobrenome">
+      <span *ngIf="editForm.controls.sobrenome.errors?.required" class="text-danger">
+        Campo obrigatório
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="Idade">Idade:</label>
+      <input type="number" formControlName="idade" placeholder="idade" name="idade" class="form-control" id="idade">
+      <span *ngIf="editForm.controls.idade.errors?.required" class="text-danger">
+        Campo obrigatório
+      </span>
+    </div>
+
+    <button class="btn btn-success" [disabled]="!editForm.valid">Alterar</button>
+
+  </form>
+
+</div>

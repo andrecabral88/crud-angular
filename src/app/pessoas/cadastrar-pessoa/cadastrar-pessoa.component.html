@@ -1,0 +1,30 @@
+<div class="col-md-6 user-container">
+  <h2 class="text-center">Adicionar Pessoa</h2>
+  <form [formGroup]="addForm" (ngSubmit)="cadastrar()">
+    <div class="form-group">
+      <label for="nome">Nome:</label>
+      <input type="text" formControlName="nome" placeholder="Informe seu nome" name="nome" class="form-control" id="nome" >
+      <span *ngIf="addForm.controls.nome.errors?.required" class="text-danger">
+        Campo obrigatório
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="sobrenome">Sobrenome:</label>
+      <input formControlName="sobrenome" placeholder="Informe seu sobrenome" name="sobrenome" class="form-control" id="sobrenome">
+      <span *ngIf="addForm.controls.sobrenome.errors?.required" class="text-danger">
+        Campo obrigatório
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="Idade">Idade:</label>
+      <input type="number" formControlName="idade" placeholder="Informe sua idade" name="idade" class="form-control" id="idade">
+      <span *ngIf="addForm.controls.idade.errors?.required" class="text-danger">
+        Campo obrigatório
+      </span>
+    </div>
+
+    <button class="btn btn-success" [disabled]="!addForm.valid" >Cadastrar</button>
+  </form>
+</div>
